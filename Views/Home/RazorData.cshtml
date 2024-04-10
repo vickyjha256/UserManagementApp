@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "RazorData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RazorData</h2>
+
+<div>
+    <table class="table table-warning table-bordered table-responsive" style="background-color: antiquewhite" id="tbl_index">
+        <thead>
+            <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">User ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role Name</th>
+                <th scope="col"> Update User </th>
+                <th scope="col"> Delete User </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @{
+                int index = 1;
+                foreach (var data in ViewBag.AllUsers)
+                {
+                    <tr>
+                        <th scope="row"> @index </th>
+                        <th> @data.UserId </th>
+                        <td> @data.Name </td>
+                        <td> @data.Email </td>
+                        <td> @data.RoleName </td>
+
+                        <td> <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="handleUpdate('@Json.Encode(data)')"> Edit </button> </td>
+                        <td> <a class="btn btn-danger" href="#" onclick="return handleDelete('@data.UserId')"> Delete </a> </td>
+                    </tr>
+                    index++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+@*Model Dialog Div*@
+<div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit user details</h1>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <form action="/Home/UserUpdate" method="post" class="">
+                            <input hidden id="hidId" name="hidId" value="">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="ename" name="ename" placeholder="Name" required>
+                                <label for="ename"> Name </label>
+                            </div>
+
+
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="eemail" name="eemail" placeholder="name@example.com" required>
+                                <label for="eemail"> Email </label>
+                            </div>
+
+
+                            <div class="form-group d-flex justify-content-center">
+                                <button style="width: 50%" type="submit" onclick="ShowAlert()" class="btn btn-warning rounded mx-1" data-bs-dismiss="modal"> Update </button>
+                                <button style="width: 50%" type="button" class="btn btn-secondary rounded mx-1" data-bs-dismiss="modal"> Cancel </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function () {
+        $('#tbl_index').DataTable();
+    })
+
+    function handleUpdate(data) {
+        // Handle update logic here
+        //alert('Update user with ID: ' + userId); // This is for testing only.
+
+        let userData = JSON.parse(data);
+
+        document.getElementById('hidId').value = userData.UserId;
+        document.getElementById('ename').value = userData.Name;
+        document.getElementById('eemail').value = userData.Email;
+
+    }
+
+    const ShowAlert = () => {
+        // Show success alert after form submission
+        Swal.fire({
+            title: 'Success!',
+            text: 'User updated successfully!',
+            icon: 'success',
+            background: '#ffc09f'
+        });
+    }
+
+    function handleDelete(userId) {
+        // Handle delete logic here
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Delete this user!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            background: '#ffc09f'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                //alert("user is deleted with ID: " + userId); // This is for testing only.
+                window.location.href = '/Home/RazorDelete/' + userId;
+            }
+        });
+
+        return false;
+    }
+</script>

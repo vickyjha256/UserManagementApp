@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+</style>
+
+
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="~/CustomCss/TemplateCSS/css.css" rel="stylesheet" />
+
+
+<div class="">
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    @*<h2 class="heading-section">Login to your account</h2>*@
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="login-wrap p-4 p-md-5">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="fa fa-user-o"></span>
+                        </div>
+                        <h3 class="text-center mb-3">Login to your account </h3>
+                        <form action="/Accounts/Login" method="post" class="login-form">
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" class="form-control rounded-left" placeholder="Email" required>
+                            </div>
+                            <div class="form-group d-flex">
+                                <input type="password" id="password" name="password" class="form-control rounded-left" placeholder="Password" required>
+                            </div>
+                            <div class="form-group d-md-flex">
+                                <div class="w-50">
+                                    <label class="checkbox-wrap checkbox-primary">
+                                        Remember Me
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="w-50 text-md-right">
+                                    <a href="#">Forgot Password</a>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                Don't have an account? <a href="/Accounts/Signup" > Sign Up </a>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!--<div class="d-flex justify-content-center">
+        <div class="logindiv align-items-center">
+            <h1> Login to your account</h1>-->
+    @*@Url.Action("Login","Accounts")*@
+    <!--<form action="/Accounts/Login" method="post">
+        <div class="form-floating mb-3 mt-3">
+            <input type="email" name="email" id="email" class="form-control" required placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="password" name="password" class="form-control" id="password" required placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+
+        <button id="btnSubmit"  style="width: 100%" class="btn btn-info mb-3 ps-2 pe-2">Login</button>-->
+    @*<button onclick="test()" style="width: 100%" class="btn btn-info mb-3 ps-2 pe-2">Login</button>*@
+    <!--</form>
+
+        </div>
+    </div>-->
+</div>
+@*<script src="~/Scripts/jquery-3.7.1.min.js"></script>*@
+<script>
+    //  $(document).ready(function () {
+    //     alert("Hello");
+    // })
+
+    //function test() {
+    //    alert("test")
+    //}
+
+    // $('#btnSubmit').click(function () {
+    // alert("ok")
+    // })
+</script>

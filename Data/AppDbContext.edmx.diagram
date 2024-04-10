@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ffbdf5a0beef456b80b1909b67ed4a7f" Name="Diagram1">
+        <EntityTypeShape EntityType="EMPTYDBModel.country" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMPTYDBModel.Cricketer" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMPTYDBModel.LINQTEST" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMPTYDBModel.role" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMPTYDBModel.state" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMPTYDBModel.User" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="EMPTYDBModel.FK__states__CountryI__2CF2ADDF" ManuallyRouted="false" />
+        <AssociationConnector Association="EMPTYDBModel.FK__Users__roleId__14270015" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EMPTYDBModel.personalInfo" Width="1.5" PointX="8.25" PointY="2.375" />
+        <AssociationConnector Association="EMPTYDBModel.FK__personalI__Count__3C34F16F" />
+        <AssociationConnector Association="EMPTYDBModel.FK__personalI__State__3D2915A8" />
+        <AssociationConnector Association="EMPTYDBModel.FK__personalI__userI__607251E5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
